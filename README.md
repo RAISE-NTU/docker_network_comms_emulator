@@ -1,4 +1,4 @@
-# NetEm Based Simple Comms Emulator
+# NetEm Based Simple Comms Emulator for Docker Networks
 
 This project provides a simple, yet powerful, network emulator using `tc` (traffic control) and `netem` (network emulator) to simulate various network conditions between robots. It is particularly useful for testing the resilience of robotic communication links to issues like **packet loss**, **latency**, and **bandwidth limitations**.
 
