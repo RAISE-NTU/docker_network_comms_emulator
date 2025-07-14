@@ -50,6 +50,7 @@ First, you need to run the `InitialSetup` executable to configure the basic queu
     ```
 
   * **Example**: The following command sets up a `prio` `qdisc` with **3** bands on the `lo` (loopback) device.
+    For two robots you need 3 (2+1) bands.
 
     ```bash
     ./InitialSetup lo 3
@@ -57,23 +58,19 @@ First, you need to run the `InitialSetup` executable to configure the basic queu
 
 ### 2\. Emulate Robot-to-Robot Communication Links
 
-Next, for each communication link you want to emulate between two robots, you need to run an instance of the `RobotToRobotCommsEmulator`.
+To emulate the network link between two robots (or containers), run an instance of the `RobotToRobotCommsEmulator`. You will need to provide the names of the robots and the corresponding virtual ethernet (veth) interfaces.
 
   * **Usage**:
 
     ```bash
-    ./RobotToRobotCommsEmulator <source_robot> <target_robot>
+    ./RobotToRobotCommsEmulator <robot_name_1> <veth_name_1> <robot_name_2> <veth_name_2>
     ```
 
   * **Examples**:
 
-      * To emulate the link from a robot named `atlas` to a robot named `bestla`, run:
+      * To emulate the link between a robot named `atlas` and a robot named `bestla`, run:
         ```bash
-        ./RobotToRobotCommsEmulator atlas bestla
-        ```
-      * To emulate the return link from `bestla` to `atlas`, run:
-        ```bash
-        ./RobotToRobotCommsEmulator bestla atlas
+        ./RobotToRobotCommsEmulator atlas veth10b88fe bestla veth32a464a
         ```
 
 ### 3\. How the script Control Network Conditions
